@@ -7,8 +7,8 @@ function BookCreate() {
     setBookTitle(eventDetails.target.value);
   }
 
-  function handleSubmit(eve){
-eve.preventDeafault();
+  function handleSubmit(eve) {
+    eve.preventDeafault();
   }
 
   return (
@@ -19,10 +19,13 @@ eve.preventDeafault();
       <br />
       <form onSubmit={handleSubmit}>
         <input value={bookTitle} onChange={handleChange}></input>
-        <button>Add</button>
+        <button>Submit</button>
       </form>
     </>
   );
 }
 
 export default BookCreate;
+
+//react control element, (1st step make state,2.onChange-eventhandeler, evry time something changes,..new enterd value in input, setBookTitle gets updated(targetit da valuti)) line21, when we use state variable to set value at of a html element
+//during re render process rthis value gets updatet automaticlly, bc state gets updated-value gets updatet
