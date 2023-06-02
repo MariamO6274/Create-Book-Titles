@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function BookCreate(onCreate) {
+function BookCreate({onCreate}) {
   const [bookTitle, setBookTitle] = useState("");
 
   function handleChange(eventDetails) {

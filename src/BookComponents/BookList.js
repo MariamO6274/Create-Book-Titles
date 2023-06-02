@@ -1,7 +1,7 @@
 import React from 'react'
 import BookShow from './BookShow'
 
-function BookList(title) {
+function BookList({ bookList }) {
   // const bookTitleList = [];
 
   // for (let i = 0; i < title.length; i++) {
@@ -9,9 +9,14 @@ function BookList(title) {
 
   //   console.log(title[i]);
   // }
-  return <div>BookList
-    <BookShow/>
-  </div>;
+  return (
+    <div>
+      
+      {bookList}
+      <br/>
+      <BookShow/>
+    </div>
+  );
 }
 
 export default BookList

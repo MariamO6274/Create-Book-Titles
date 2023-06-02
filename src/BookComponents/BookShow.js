@@ -2,7 +2,13 @@ import React from 'react'
 
 function BookShow() {
   return (
-    <div>Harry potter</div>
+    <div>
+      Book number 1
+      
+      <button>Edit</button>
+      <button>Delete</button>
+
+    </div>
   )
 }
 

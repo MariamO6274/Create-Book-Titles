@@ -3,7 +3,6 @@ import './App.css';
 import BookCreate from './BookComponents/BookCreate';
 import BookList from "./BookComponents/BookList";
 
-
 function App() {
   const [books, setBooks] = useState([]);
 
@@ -16,12 +15,13 @@ function App() {
   }
   return (
     <div>
-      <BookCreate onCreate={createBook} /> 
+      <BookCreate onCreate={createBook} />
       <BookList bookList={books} />
+      {books}
     </div>
   );
 }
 
 export default App;
- 
+
 //onCreat is not a function
