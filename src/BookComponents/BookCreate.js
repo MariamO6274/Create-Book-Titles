@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function BookCreate() {
+function BookCreate(onCreate) {
   const [bookTitle, setBookTitle] = useState("");
 
   function handleChange(eventDetails) {
@@ -8,7 +8,11 @@ function BookCreate() {
   }
 
   function handleSubmit(eve) {
-    eve.preventDeafault();
+    eve.preventDefault();
+  }
+
+  function handleClick() {
+    onCreate(bookTitle);
   }
 
   return (
@@ -19,7 +23,7 @@ function BookCreate() {
       <br />
       <form onSubmit={handleSubmit}>
         <input value={bookTitle} onChange={handleChange}></input>
-        <button>Submit</button>
+        <button onClick={handleClick}>Submit</button>
       </form>
     </>
   );
