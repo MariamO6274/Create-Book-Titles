@@ -1,15 +1,19 @@
 import React from 'react'
 
-function BookShow() {
+function BookShow({ book, onDelete }) {
+
+function handleDeleteClick(){
+  onDelete(book);
+}
+
   return (
     <div>
-      Book number 1
-      
+      <br />
+      {book}
       <button>Edit</button>
-      <button>Delete</button>
-
+      <button onClick={handleDeleteClick}>Delete</button>
     </div>
-  )
+  );
 }
 
 export default BookShow

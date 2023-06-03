@@ -1,20 +1,18 @@
 import React from 'react'
 import BookShow from './BookShow'
 
-function BookList({ bookList }) {
+function BookList({ bookList, onDelete }) {
   const bookTitleList = [];
 
-  
- for (let i = 0; i < bookList.length; i++) {
-   bookShowList.push(<BookShow book={bookList[i]} />);
- }
+  for (let i = 0; i < bookList.length; i++) {
+    bookTitleList.push(<BookShow book={bookList[i]} onDelete={onDelete} />);
+  }
 
   return (
     <div>
-      
-      {bookList}
-      <br/>
-      <BookShow/>
+      {bookTitleList}
+      <br />
+      {/* <BookShow /> */}
     </div>
   );
 }
