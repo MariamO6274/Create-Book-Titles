@@ -2,13 +2,13 @@ import React from 'react'
 import BookShow from './BookShow'
 
 function BookList({ bookList }) {
-  // const bookTitleList = [];
+  const bookTitleList = [];
 
-  // for (let i = 0; i < title.length; i++) {
-  //   bookTitleList.push(title[i]);
+  
+ for (let i = 0; i < bookList.length; i++) {
+   bookShowList.push(<BookShow book={bookList[i]} />);
+ }
 
-  //   console.log(title[i]);
-  // }
   return (
     <div>
       
