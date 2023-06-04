@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './App.css';
-import BookCreate from './BookComponents/BookCreate';
+import React, {  useState } from "react";
+import "./App.css";
+import BookCreate from "./BookComponents/BookCreate";
 import BookList from "./BookComponents/BookList";
 
 function App() {
@@ -12,34 +12,68 @@ function App() {
   // We will pass a callBack function as prop
 
   function createBook(title) {
-    console.log(title);
+    if (!title) {
+      alert("Title is empty");
+      return;
+    }
     // As soon as we crate a new book, we should re-render everything.
     // Because we want to see the new book in our book list
     // So to trigger this re-render, we should update the state.
-    const updatedBooks = [...books, title];
-    setBooks(updatedBooks);
+    setBooks([...books, { id: books.length + 1, title }]);
   }
 
-
-    // Here we will now have a DeleteBook Callback function
-  const deleteBook = (bookTitleToDelete) => {
+  // Here we will now have a DeleteBook Callback function
+  const deleteBook = (bookId) => {
     // This function will delete a book from our books list.
     // which ever I'll pass, it needs  to be passed-> bookTitleToDelete, this will create new array
-    const updatedBooks1 = books.filter((book) => {
-      return book !== bookTitleToDelete;
+    const updatedBooks = books.filter((book) => {
+      return book.id !== bookId;
     });
-    setBooks(updatedBooks1);
+    setBooks(updatedBooks);
   };
+
+  const updateBook = (id, newTitle) => {
+    const updatedBooks = books.map((book) => {
+      if (book.id === id) {
+        return { ...book, title: newTitle };
+      }
+      return book;
+    });
+
+    setBooks(updatedBooks);
+  };
+
 
 
   return (
     <div>
-      <BookCreate onCreate={createBook} />
-      <BookList bookList={books} onDelete={deleteBook} />
-    </div>
+      <header>
+        <BookCreate onCreate={createBook} />
+      </header>
+
+      
+        <BookList
+          bookList={books}
+          onDelete={deleteBook}
+          updateBook={updateBook}
+        />
+      </div>
+    
   );
 }
 
 export default App;
 
 
+
+
+
+
+
+
+  // useEffect(() => {
+  //   console.log(books);
+  // }, [books]);
+
+
+  // <div style={{ display: "flex", "flex-wrap": "wrap" }}></div>

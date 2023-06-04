@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import "../App.css";
 
-function BookCreate({onCreate}) {
+function BookCreate({ onCreate }) {
   const [bookTitle, setBookTitle] = useState("");
 
   function handleChange(eventDetails) {
@@ -9,21 +10,17 @@ function BookCreate({onCreate}) {
 
   function handleSubmit(eve) {
     eve.preventDefault();
-  }
-
-  function handleClick() {
     onCreate(bookTitle);
+    setBookTitle("");
   }
 
   return (
     <>
-      Add Book
-      <br />
-      Title
-      <br />
+      <h1> Add Book Title</h1>
+      
       <form onSubmit={handleSubmit}>
-        <input value={bookTitle} onChange={handleChange}></input>
-        <button onClick={handleClick}>Submit</button>
+        <input className="inputBar" value={bookTitle} onChange={handleChange}></input>
+        <button className="button">Submit</button>
       </form>
     </>
   );
@@ -31,5 +28,4 @@ function BookCreate({onCreate}) {
 
 export default BookCreate;
 
-//react control element, (1st step make state,2.onChange-eventhandeler, evry time something changes,..new enterd value in input, setBookTitle gets updated(targetit da valuti)) line21, when we use state variable to set value at of a html element
-//during re render process rthis value gets updatet automaticlly, bc state gets updated-value gets updatet
+

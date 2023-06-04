@@ -1,20 +1,16 @@
-import React from 'react'
-import BookShow from './BookShow'
+import React from "react";
+import BookShow from "./BookShow";
 
-function BookList({ bookList, onDelete }) {
-  const bookTitleList = [];
-
-  for (let i = 0; i < bookList.length; i++) {
-    bookTitleList.push(<BookShow book={bookList[i]} onDelete={onDelete} />);
-  }
-
+function BookList({ bookList, onDelete, updateBook }) {
   return (
-    <div>
-      {bookTitleList}
-      <br />
-      {/* <BookShow /> */}
+    <div className="bookDiv">
+      {bookList.map((book) => {
+        return (
+          <BookShow book={book} onDelete={onDelete} updateBook={updateBook} />
+        );
+      })}
     </div>
   );
 }
 
-export default BookList
+export default BookList;
