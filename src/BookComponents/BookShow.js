@@ -17,7 +17,7 @@ function BookShow({ book, onDelete, updateBook }) {
       )}
       {!isEdit && (
         <button
-          className="delete"
+          className="edit"
           onClick={() => {
             setIsEdit(true);
           }}
@@ -41,6 +41,3 @@ function BookShow({ book, onDelete, updateBook }) {
 
 export default BookShow;
 
-// BUGS
-// when you create many book with same titels and you want to delete one, on 1 click evrything gets deleted
-// if it is a same name use filter->
