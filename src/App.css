@@ -1,3 +1,5 @@
+
+/**/
 body {
   background-color: #dce0e5;
 }
@@ -33,11 +35,36 @@ header {
   align-items: center;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
 }
-
-/* .delete.edit{
-  width:50px;
-  color: blue;
+/* button {
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: 5px;
 } */
+
+/* .delete{
+  background: #e74c3c;
+}
+
+button.delete:hover {
+  background: #c0392b;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button.edit {
+  background: #8d94ff;
+}
+
+button.edit:hover {
+  background: #8d95ffce;
+} */
+
+
 
 .buttonDiv {
   display: flex;
