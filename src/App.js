@@ -1,7 +1,8 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import BookCreate from "./BookComponents/BookCreate";
 import BookList from "./BookComponents/BookList";
+import BooksContext from "./BookContext"
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -43,37 +44,39 @@ function App() {
     setBooks(updatedBooks);
   };
 
+  var contextObjToShare = {
+    deleteBookUsingContext: deleteBook,
+  };
 
+  //Context provides a way to share values like these between components 
+  //without having to explicitly pass a prop through every level of the tree.
 
   return (
     <div>
       <header>
         <BookCreate onCreate={createBook} />
       </header>
-
       
+      <BooksContext.Provider value={contextObjToShare}>
         <BookList
           bookList={books}
-          onDelete={deleteBook}
+          // onDelete={deleteBook}
           updateBook={updateBook}
         />
-      </div>
-    
+      </BooksContext.Provider>
+      ;
+    </div>
   );
 }
 
 export default App;
 
+// useEffect(() => {
+//   console.log(books);
+// }, [books]);
+
+// <div style={{ display: "flex", "flex-wrap": "wrap" }}></div>
 
 
-
-
-
-
-
-  // useEffect(() => {
-  //   console.log(books);
-  // }, [books]);
-
-
-  // <div style={{ display: "flex", "flex-wrap": "wrap" }}></div>
+// Context provides a way to pass data through the component tree
+// without having to pass props down manually at every level.

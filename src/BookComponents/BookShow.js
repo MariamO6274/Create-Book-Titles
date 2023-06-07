@@ -2,7 +2,16 @@ import React, { useState } from "react";
 import BookEdit from "./BookEdit";
 import "../App.css";
 
-function BookShow({ book, onDelete, updateBook }) {
+import { useContext } from "react";
+import BooksContext from "../BookContext";
+
+
+
+function BookShow({ book, updateBook }) {
+//let's write her
+ const val = useContext(BooksContext);
+ console.log(val);
+
   const [isEdit, setIsEdit] = useState();
   return (
     <div
@@ -29,7 +38,7 @@ function BookShow({ book, onDelete, updateBook }) {
         <button
           className="delete"
           onClick={() => {
-            onDelete(book.id);
+            val.deleteBookUsingContext(book.id);
           }}
         >
           Delete
@@ -41,3 +50,4 @@ function BookShow({ book, onDelete, updateBook }) {
 
 export default BookShow;
 
+// val.deleteBookUsingContext(book);

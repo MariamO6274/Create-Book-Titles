@@ -1,12 +1,12 @@
 import React from "react";
 import BookShow from "./BookShow";
 
-function BookList({ bookList, onDelete, updateBook }) {
+function BookList({ bookList, updateBook }) {
   return (
     <div className="bookDiv">
       {bookList.map((book) => {
         return (
-          <BookShow book={book} onDelete={onDelete} updateBook={updateBook} />
+          <BookShow book={book}  updateBook={updateBook} />
         );
       })}
     </div>
