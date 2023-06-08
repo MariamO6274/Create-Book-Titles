@@ -5,13 +5,16 @@ import "../App.css";
 import { useContext } from "react";
 import BooksContext from "../BookContext";
 
-
-
 function BookShow({ book, updateBook }) {
-//let's write her
- const val = useContext(BooksContext);
- console.log(val);
 
+
+  //let's write her context value
+  const val = useContext(BooksContext);
+  console.log(val);
+
+
+
+  
   const [isEdit, setIsEdit] = useState();
   return (
     <div
@@ -50,4 +53,3 @@ function BookShow({ book, updateBook }) {
 
 export default BookShow;
 
-// val.deleteBookUsingContext(book);

@@ -46,6 +46,7 @@ function App() {
 
   var contextObjToShare = {
     deleteBookUsingContext: deleteBook,
+    updateBook: updateBook
   };
 
   //Context provides a way to share values like these between components 
@@ -56,15 +57,14 @@ function App() {
       <header>
         <BookCreate onCreate={createBook} />
       </header>
-      
       <BooksContext.Provider value={contextObjToShare}>
         <BookList
           bookList={books}
-          // onDelete={deleteBook}
-          updateBook={updateBook}
+          
+          // updateBook={updateBook}
         />
       </BooksContext.Provider>
-      ;
+      
     </div>
   );
 }
